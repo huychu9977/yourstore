@@ -175,7 +175,10 @@
             });
             $j(document).on('click', '.plus-btn', function () {
                 var $jinput = $j(this).parent().find('input');
-                $jinput.val(parseInt($jinput.val()) + 1);
+                var count = parseInt($jinput.val()) + 1;
+                var maxx = parseInt($jinput.attr('max'));
+                count = count > maxx ? maxx : count;
+                $jinput.val(count);
                 $jinput.change();
                 return false;
             });

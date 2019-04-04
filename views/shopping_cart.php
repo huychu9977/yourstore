@@ -162,7 +162,7 @@
                                 +'<div class="shopping-cart-table__input">'
                                     +'<div class="number input-counter">'
                                         +'<span class="minus-btn"></span>'
-                                        +'<input type="text" value="'+item.quantity+'" size="5" />'
+                                        +'<input type="text" max="'+item.product.quantity+'" value="'+item.quantity+'" size="5" />'
                                         +'<span class="plus-btn"></span>'
                                     +'</div>'
                                 +'</div>'
