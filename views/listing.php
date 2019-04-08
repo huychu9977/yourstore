@@ -1,5 +1,5 @@
 <!-- include header -->
-<?php include('layout/header.php'); ?>
+<?php include 'layout/header.php';?>
     <!-- End HEADER section -->
     <!-- breadcrumbs -->
     <div class="breadcrumbs">
@@ -68,16 +68,17 @@
                         <h4 class="collapse-block__title">THỂ LOẠI</h4>
                         <div class="collapse-block__content">
                             <ul class="simple-list">
-                                <?php foreach($types as $au) { ?>
+                                <?php foreach ($types as $au) {
+	?>
                                 <li <?php
-                                    if(isset($_GET['type'])) {
-                                        if($_GET['type'] == $au['code']) {
-                                            echo "class='active current'";
-                                        }
-                                    }
+if (isset($_GET['type'])) {
+		if ($_GET['type'] == $au['code']) {
+			echo "class='active current'";
+		}
+	}
 
-                                ?> ><a slug-name="type" slug-code="<?php echo $au['code'];?>" href="javascript:void(0)"><?php echo $au['name'] . "<b> (" . $au['total'] . ")</b>";?> </a></li>
-                                <?php } ?>
+	?> ><a slug-name="type" slug-code="<?php echo $au['code']; ?>" href="javascript:void(0)"><?php echo $au['name'] . "<b> (" . $au['total'] . ")</b>"; ?> </a></li>
+                                <?php }?>
                             </ul>
                         </div>
                     </div>
@@ -87,16 +88,17 @@
                         <h4 class="collapse-block__title">CÔNG TY PHÁT HÀNH</h4>
                         <div class="collapse-block__content">
                             <ul class="simple-list">
-                                <?php foreach($publishers as $au) { ?>
+                                <?php foreach ($publishers as $au) {
+	?>
                                 <li <?php
-                                    if(isset($_GET['publisher'])) {
-                                        if($_GET['publisher'] == $au['code']) {
-                                            echo "class='active current'";
-                                        }
-                                    }
+if (isset($_GET['publisher'])) {
+		if ($_GET['publisher'] == $au['code']) {
+			echo "class='active current'";
+		}
+	}
 
-                                ?> ><a slug-name="publisher" slug-code="<?php echo $au['code'];?>" href="javascript:void(0)"><?php echo $au['name'] . "<b> (" . $au['total'] . ")</b>";?> </a></li>
-                                <?php } ?>
+	?> ><a slug-name="publisher" slug-code="<?php echo $au['code']; ?>" href="javascript:void(0)"><?php echo $au['name'] . "<b> (" . $au['total'] . ")</b>"; ?> </a></li>
+                                <?php }?>
                             </ul>
                         </div>
                     </div>
@@ -128,21 +130,22 @@
                         <h4 class="collapse-block__title">TÁC GIẢ</h4>
                         <div class="collapse-block__content">
                             <ul class="simple-list">
-                                <?php foreach($authors as $au) { ?>
+                                <?php foreach ($authors as $au) {
+	?>
                                 <li <?php
-                                    if(isset($_GET['author'])) {
-                                        if($_GET['author'] == $au['code']) {
-                                            echo "class='active current'";
-                                        }
-                                    }
+if (isset($_GET['author'])) {
+		if ($_GET['author'] == $au['code']) {
+			echo "class='active current'";
+		}
+	}
 
-                                ?> ><a slug-name="author" slug-code="<?php echo $au['code'];?>" href="javascript:void(0)"><?php echo $au['name'] . "<b> (" . $au['total'] . ")</b>";?> </a></li>
-                                <?php } ?>
+	?> ><a slug-name="author" slug-code="<?php echo $au['code']; ?>" href="javascript:void(0)"><?php echo $au['name'] . "<b> (" . $au['total'] . ")</b>"; ?> </a></li>
+                                <?php }?>
                             </ul>
                         </div>
                     </div>
                     <!-- /authors block -->
-                    
+
                     <!-- featured block -->
                     <div class="collapse-block open coll-products-js">
                         <h4 class="collapse-block__title">Thịnh thành</h4>
@@ -152,7 +155,7 @@
                         <div class="coll-gallery-clone" style="display:none">
 
                             <div class="vertical-carousel vertical-carousel-2 offset-top-10">
-                                <?php foreach($productNew as $val){?>
+                                <?php foreach ($productNew as $val) {?>
                                 <div class="vertical-carousel__item">
                                     <div class="vertical-carousel__item__image pull-left">
                                         <a href="?mod=detail&code=<?php echo $val['code']; ?>"><img src="public/images/product/<?php echo $val['image']; ?>" alt=""></a>
@@ -203,8 +206,14 @@
                                 <div class="select-wrapper">
                                     <select class="select--ys sort-position">
                                         <option value="null">Defult</option>
-                                        <option <?php if($sort == 'name') echo "selected"; ?> value="name">Name</option>
-                                        <option <?php if($sort == 'price') echo "selected"; ?> value="price">Price</option>
+                                        <option <?php if ($sort == 'name') {
+	echo "selected";
+}
+?> value="name">Name</option>
+                                        <option <?php if ($sort == 'price') {
+	echo "selected";
+}
+?> value="price">Price</option>
                                     </select>
                                 </div>
                                 <a href="#" class="sort-direction icon icon-arrow_back"></a>
@@ -228,7 +237,7 @@
                     </div>
                     <!-- /filters row -->
                     <div class="product-listing row">
-                    
+
                         <?php foreach ($products as $p) {?>
                         <div class="col-xs-6 col-sm-4 col-md-6 col-lg-4 col-xl-one-fifth">
                             <!-- product -->
@@ -265,7 +274,7 @@
                                         <!-- product info -->
                                         <div class="product__inside__info">
                                             <div class="product__inside__info__btns">
-                                                <a href="javascript:void(0)" slug-code="<?php echo $p['code'];?>" class="btn btn--ys btn--xl add-to-cart">
+                                                <a href="javascript:void(0)" slug-code="<?php echo $p['code']; ?>" class="btn btn--ys btn--xl add-to-cart">
                                                     <span class="icon icon-shopping_basket"></span> Add to cart
                                                 </a>
                                                 <a href="#" class="btn btn--ys btn--xl visible-xs"><span class="icon icon-favorite_border"></span></a>
@@ -286,23 +295,23 @@
                             </div>
                             <!-- /product -->
                         </div>
-                    <?php } ?>
+                    <?php }?>
                     </div>
                     <!-- filters row -->
                     <div class="filters-row">
-                        
+
                         <div class="pull-right">
-                            
+
                             <div class="filters-row__pagination">
                                 <ul class="pagination">
-                                    <?php 
-                                    for ($i=1; $i <= ceil($total/6) ; $i++) { 
-                                        if ($page == $i) {
-                                    ?>
+                                    <?php
+for ($i = 1; $i <= ceil($total / 6); $i++) {
+	if ($page == $i) {
+		?>
                                         <li class="current active"><a href="javascript:void(0)"><?php echo $i; ?></a></li>
-                                    <?php } else { ?>
+                                    <?php } else {?>
                                         <li><a href="javascript:void(0)"> <?php echo $i; ?></a></li>
-                                    <?php } } ?>
+                                    <?php }}?>
                                 </ul>
                             </div>
                         </div>
@@ -317,7 +326,7 @@
     <!-- End CONTENT section -->
     <!-- FOOTER section -->
 
-    <?php include('layout/footer.php'); ?>
+    <?php include 'layout/footer.php';?>
 
         <!-- Modal (quickViewModal) -->
         <div class="modal  modal--bg fade" id="quickViewModal">
@@ -339,7 +348,7 @@
                                     <div class="product-info col-xs-12 col-sm-7 col-md-6 col-lg-6">
                                         <div class="wrapper">
                                             <div class="product-info__sku pull-left">Tác giả: <strong class="pro_aName"></strong></div>
-                                            <div class="product-info__availabilitu pull-right">Nhà xuất bản: 
+                                            <div class="product-info__availabilitu pull-right">Nhà xuất bản:
                                                 <strong class="color pro_pName"></strong></div>
                                         </div>
                                         <div class="product-info__title" >
@@ -399,10 +408,10 @@
         <!-- Custom -->
         <script>
             var startVal = [<?php
-                            echo isset($prices) ? $prices[0] : 0;
-                        ?>, <?php
-                            echo isset($prices) ? $prices[1] : 500;
-                        ?>];
+echo isset($prices) ? $prices[0] : 0;
+?>, <?php
+echo isset($prices) ? $prices[1] : 500;
+?>];
         </script>
         <script src="public/js/custom.js"></script>
         <script src="public/external/jquery/jquery-2.1.4.min.js"></script>
@@ -462,6 +471,7 @@
                     replaceUrl($(this).children().text().trim());
                 })
                 $('.simple-list').find('li').click(function() {
+                    $(this).parent().find('li.active').not(this).removeClass('active');
                     $(this).toggleClass('active');
                     replaceUrl(1);
                 })
@@ -491,7 +501,7 @@
                 $(document).on('click', '.quick-view-detail', function(){
                     findDetailByCode($(this).attr('slug-code'));
                 });
-                
+
                 function findDetailByCode(code) {
                     $('#add-to-cart-modal').parents('.product-info').find('input[name="quantity"]').val(1);
                     $.ajax({
