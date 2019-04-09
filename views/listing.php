@@ -48,7 +48,7 @@
                         <a href="#" class="icon icon-arrow-up"></a>
                     </div>
                     <!-- shopping by block -->
-                    <div class="collapse-block open">
+                    <div class="collapse-block">
                         <h4 class="collapse-block__title">ĐANG CHỌN:</h4>
                         <div class="collapse-block__content">
                             <ul class="filter-list">
