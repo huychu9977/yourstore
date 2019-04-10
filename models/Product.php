@@ -20,7 +20,7 @@ class Product {
 		return $result;
 	}
 	function findNew() {
-		$sql = "SELECT TOP 3 [code], [name], [price], [image] FROM [QuanLyBanSach].[dbo].[book] order by id";
+		$sql = "SELECT TOP 3 [code], [name], [price], [image] FROM [dbo].[book] order by id";
 		$stmt = sqlsrv_query($this->connect, $sql);
 		$data = array();
 		while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
