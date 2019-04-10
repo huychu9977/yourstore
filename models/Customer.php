@@ -30,6 +30,11 @@ class Customer {
 		$result = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC);
 		return $result;
 	}
+	function insertShipInfo($id, $name, $address, $phone, $description) {
+		$sql = "insert into dbo.[ship_info] (name, [address], phone, description, customer_id) values(?,?,?,?,?)";
+		$stmt = sqlsrv_query($this->cus, $sql, array($name, $address, $phone, $description, $id));
+		return $stmt;
+	}
 	function updateShipInfo($id, $name, $address, $phone, $description) {
 		$sql = "update dbo.[ship_info] set name = ?, [address] = ?, phone = ?, description = ? where [customer_id] = ?";
 		$stmt = sqlsrv_query($this->cus, $sql, array($name, $address, $phone, $description, $id));

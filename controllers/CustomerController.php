@@ -38,10 +38,18 @@ class CustomerController {
 		$phone = $_POST['phone'];
 		$address = $_POST['address'];
 		$description = $_POST['description'];
-		if ($this->customer->updateShipInfo($_SESSION['customer']['id'], $name, $address, $phone, $description)) {
-			header("location: ?mod=checkout");
+		if ($this->customer->getShipInfo($_SESSION['customer']['id'])) {
+			if ($this->customer->updateShipInfo($_SESSION['customer']['id'], $name, $address, $phone, $description)) {
+				header("location: ?mod=checkout");
+			} else {
+			}
 		} else {
+			if ($this->customer->insertShipInfo($_SESSION['customer']['id'], $name, $address, $phone, $description)) {
+				header("location: ?mod=checkout");
+			} else {
+			}
 		}
+
 	}
 	function createOrder() {
 		$siteId = isset($_SESSION['site']) ? $_SESSION['site']['id'] : 1;
