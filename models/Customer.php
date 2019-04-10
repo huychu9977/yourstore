@@ -36,19 +36,19 @@ class Customer {
 		return $stmt;
 	}
 	function createOder($code, $customerId, $status, $createdDate, $createdBy, $saleType, $siteId) {
-		$sql = "insert into dbo.[order] (code, customer_id, status, created_date, created_by, sale_type, site_id) values(?,?,?,?,?,?,?)";
+		$sql = "insert into [DESKTOP-BMK7D2Q].[QuanLyBanSach].[dbo].[order] (code, customer_id, status, created_date, created_by, sale_type, site_id) values(?,?,?,?,?,?,?)";
 		$stmt = sqlsrv_query($this->cus, $sql, array($code, $customerId, $status, $createdDate, $createdBy, $saleType, $siteId));
 		return $stmt;
 	}
 	function createOderDetail($code, $bookId, $quantity, $price) {
-		$sql = "insert into dbo.[order_detail] (order_code, book_id, quantity, price) values(?,?,?,?)";
+		$sql = "insert into [DESKTOP-BMK7D2Q].[QuanLyBanSach].[dbo].[order_detail] (order_code, book_id, quantity, price) values(?,?,?,?)";
 		$stmt = sqlsrv_query($this->cus, $sql, array($code, $bookId, $quantity, $price));
 		return $stmt;
 	}
 	function getOrders($customerId) {
-		$sql = "select o.code, o.status, o.created_date, s.location, sum(od.price * od.quantity) as total_price from dbo.[order] o
+		$sql = "select o.code, o.status, o.created_date, s.location, sum(od.price * od.quantity) as total_price from [DESKTOP-BMK7D2Q].[QuanLyBanSach].[dbo].[order] o
 				left join dbo.[site] s on o.site_id = s.id
-				inner join dbo.[order_detail] od on o.code = od.order_code
+				inner join [DESKTOP-BMK7D2Q].[QuanLyBanSach].[dbo].[order_detail] od on o.code = od.order_code
 				where customer_id = " . $customerId . "
 				group  by o.code, o.status, o.created_date, s.location";
 		$stmt = sqlsrv_query($this->cus, $sql);
@@ -59,7 +59,7 @@ class Customer {
 		return $data;
 	}
 	function findOrderDetail($code) {
-		$sql = "SELECT b.name, od.quantity, od.price, (od.quantity * od.price) as total_price FROM [dbo].[order_detail] od inner join dbo.book b on od.book_id = b.id where od.order_code = '" . $code . "'";
+		$sql = "SELECT b.name, od.quantity, od.price, (od.quantity * od.price) as total_price FROM [DESKTOP-BMK7D2Q].[QuanLyBanSach].[dbo].[order_detail] od inner join dbo.book b on od.book_id = b.id where od.order_code = '" . $code . "'";
 		$stmt = sqlsrv_query($this->cus, $sql);
 		$data = array();
 		while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
