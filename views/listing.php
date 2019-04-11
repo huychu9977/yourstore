@@ -305,7 +305,7 @@ if (isset($_GET['author'])) {
                             <div class="filters-row__pagination">
                                 <ul class="pagination">
                                     <?php
-for ($i = 1; $i <= ceil($total / 6); $i++) {
+for ($i = 1; $i <= ceil($total / 12); $i++) {
 	if ($page == $i) {
 		?>
                                         <li class="current active"><a href="javascript:void(0)"><?php echo $i; ?></a></li>
