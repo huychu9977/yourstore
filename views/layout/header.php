@@ -219,29 +219,29 @@
                             <!-- site start -->
                             <div class="site dropdown text-right">
                                 <div class="dropdown-label hidden-sm hidden-xs slogan">Bạn đang ở đâu ?</div>
-                                <a class="dropdown-toggle" data-toggle="dropdown"> 
-                                    <?php 
-                                        include_once 'models/Customer.php';
-                                        $c = new Customer();
-                                        if(!isset($_SESSION['site'])) {
-                                            
-                                            $_SESSION['site'] = $c->findSiteByCode('SITE_HANOI');
-                                        }
-                                        echo $_SESSION['site']['location'];
-                                    ?>
+                                <a class="dropdown-toggle" data-toggle="dropdown">
+                                    <?php
+include_once 'models/Customer.php';
+$c = new Customer();
+if (!isset($_SESSION['site'])) {
+
+	$_SESSION['site'] = $c->findSiteByCode('SITE_HANOI');
+}
+echo $_SESSION['site']['location'];
+?>
                                     <span class="caret"></span></a>
                                 <ul class="dropdown-menu dropdown-menu--xs-full">
-                                    <?php 
-                                        $sites = $c->getSites();
-                                        foreach ($sites as $s) { 
-                                            if($_SESSION['site']['code'] != $s['code']){
-                                    ?>
+                                    <?php
+$sites = $c->getSites();
+foreach ($sites as $s) {
+	if ($_SESSION['site']['code'] != $s['code']) {
+		?>
                                         <li>
                                             <a slug-code="<?php echo $s['code']; ?>" href="javascript:void(0)">
                                             <?php echo $s['location']; ?>
                                             </a>
                                         </li>
-                                    <?php } }?>
+                                    <?php }}?>
                                     <li class="dropdown-menu__close"><a href="#"><span class="icon icon-close"></span>close</a></li>
                                 </ul>
                             </div>
@@ -366,7 +366,7 @@
                                                                 <div class="product__inside">
                                                                     <!-- product image -->
                                                                     <div class="product__inside__image">
-                                                                        <a href="product.html"> <img src="public/images/product/product-20.jpg" alt=""> </a>
+                                                                        <a href="product.html"> <img src="../upload/product-20.jpg" alt=""> </a>
                                                                     </div>
                                                                     <!-- /product image -->
                                                                     <!-- product name -->
@@ -387,7 +387,7 @@
                                                                 <div class="product__inside">
                                                                     <!-- product image -->
                                                                     <div class="product__inside__image">
-                                                                        <a href="product.html"> <img src="public/images/product/product-2.jpg" alt=""> </a>
+                                                                        <a href="product.html"> <img src="../upload/product-2.jpg" alt=""> </a>
                                                                     </div>
                                                                     <!-- /product image -->
                                                                     <!-- product name -->
@@ -408,7 +408,7 @@
                                                                 <div class="product__inside">
                                                                     <!-- product image -->
                                                                     <div class="product__inside__image">
-                                                                        <a href="product.html"> <img src="public/images/product/product-4.jpg" alt=""> </a>
+                                                                        <a href="product.html"> <img src="../upload/product-4.jpg" alt=""> </a>
 
                                                                     </div>
                                                                     <!-- /product image -->
@@ -487,7 +487,7 @@
                                                     <div class="vertical-carousel vertical-carousel-1 special-carousel">
                                                         <div class="vertical-carousel__item">
                                                             <div class="vertical-carousel__item__image pull-left">
-                                                                <a href="product.html"><img src="public/images/product/product-120x150-1.jpg" alt=""></a>
+                                                                <a href="product.html"><img src="../upload/product-120x150-1.jpg" alt=""></a>
                                                             </div>
                                                             <div class="product__label product__label--sale"> <span>Sale</span></div>
                                                             <div class="vertical-carousel__item__title">
@@ -497,7 +497,7 @@
                                                         </div>
                                                         <div class="vertical-carousel__item">
                                                             <div class="vertical-carousel__item__image pull-left">
-                                                                <a href="product.html"><img src="public/images/product/product-120x150-2.jpg" alt=""></a>
+                                                                <a href="product.html"><img src="../upload/product-120x150-2.jpg" alt=""></a>
                                                             </div>
                                                             <div class="product__label product__label--sale"> <span>Sale</span></div>
                                                             <div class="vertical-carousel__item__title">
@@ -572,13 +572,13 @@
                                             <span class="icon icon-person "></span>
                                         </a>
                                         <ul class="dropdown-menu dropdown-menu--xs-full">
-                                            <?php if(isset($_SESSION['customer']) && $_SESSION['customer'] != null) {?>
+                                            <?php if (isset($_SESSION['customer']) && $_SESSION['customer'] != null) {?>
                                             <li><a href="?mod=account"><span class="icon icon-person"></span>My Account</a></li>
-                                            <?php } ?>
+                                            <?php }?>
                                             <li><a href="wishlist.html"><span class="icon icon-favorite_border"></span>My Wishlist</a></li>
-                                            
+
                                             <li><a href="?mod=cart"><span class="icon icon-done_all"></span>Giỏ hàng</a></li>
-                                            <?php if(!isset($_SESSION['customer']) || $_SESSION['customer'] == null) {?>
+                                            <?php if (!isset($_SESSION['customer']) || $_SESSION['customer'] == null) {?>
                                             <li>
                                                 <a href="#" data-toggle="modal" data-target="#modalLoginForm">
                                                     <span class="icon icon-lock"></span>Đăng nhập
@@ -589,10 +589,10 @@
                                                     </span>Tạo tài khoản
                                                 </a>
                                             </li>
-                                            <?php } ?>
-                                            <?php if(isset($_SESSION['customer']) && $_SESSION['customer'] != null) {?>
+                                            <?php }?>
+                                            <?php if (isset($_SESSION['customer']) && $_SESSION['customer'] != null) {?>
                                             <li><a id="logout" href="javascript:void(0)"><span class="icon icon-sort"></span>Đăng xuất</a></li>
-                                            <?php } ?>
+                                            <?php }?>
                                             <li class="dropdown-menu__close"><a href="#"><span class="icon icon-close"></span>close</a></li>
                                         </ul>
                                     </div>
@@ -610,7 +610,7 @@
                                                 <div class="cart__top">Giỏ hàng(s)</div>
                                                 <a href="#" class="icon icon-close cart__close"><span>CLOSE</span></a>
                                                 <ul id="cart-item">
-                                                    
+
                                                 </ul>
                                                 <div class="cart__bottom">
                                                     <div class="cart__total">Thành tiền: <span> </span></div>
@@ -629,7 +629,7 @@
             </div>
         </header>
     </div>
-    <?php if(!isset($_SESSION['customer']) || $_SESSION['customer'] == null) {?>
+    <?php if (!isset($_SESSION['customer']) || $_SESSION['customer'] == null) {?>
     <!-- modalLoginForm-->
         <div class="modal  fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-label="myModalLabel" aria-hidden="true">
             <div class="modal-dialog white-modal modal-sm">
@@ -664,7 +664,7 @@
                             </div>
                             <button type="submit" class="btn btn--ys btn--full btn--lg">Đăng nhập</button>
                             <div class="divider divider--xs"></div>
-                            
+
                         </div>
                     </form>
                 </div>
@@ -707,6 +707,7 @@
             })
         })
         $(document).on('click', '.site li', function(){
+            localStorage.setItem('cart', JSON.stringify([]));
             var code = $(this).children().attr('slug-code');
             $.ajax({
                 url : '?mod=set-site',

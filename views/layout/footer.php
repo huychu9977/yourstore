@@ -162,7 +162,7 @@
                     $('#cart-item').append(
                         '<li class="cart__item">'
                             +'<div class="cart__item__image pull-left">'
-                                +'<a href="#"><img src="public/images/product/'+item.product.image+'" alt="" /></a>'
+                                +'<a href="#"><img src="../upload/'+item.product.image+'" alt="" /></a>'
                             +'</div>'
                             +'<div class="cart__item__control">'
                                 +'<div slug-code="'+item.product.code+'" class="cart__item__delete"><a href="javascript:void(0)" class="icon icon-delete"><span>Delete</span></a></div>'
@@ -184,7 +184,7 @@
             }else{
                 $('#cart-item').append('Giỏ hàng đang trống!');
             }
-            
+
         }
         $('#open-cart').click(function(e) {
             e.preventDefault();

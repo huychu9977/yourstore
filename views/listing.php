@@ -158,7 +158,7 @@ if (isset($_GET['author'])) {
                                 <?php foreach ($productNew as $val) {?>
                                 <div class="vertical-carousel__item">
                                     <div class="vertical-carousel__item__image pull-left">
-                                        <a href="?mod=detail&code=<?php echo $val['code']; ?>"><img src="public/images/product/<?php echo $val['image']; ?>" alt=""></a>
+                                        <a href="?mod=detail&code=<?php echo $val['code']; ?>"><img src="../upload/<?php echo $val['image']; ?>" alt=""></a>
                                     </div>
                                     <div class="vertical-carousel__item__title">
                                         <h2 class="margin0"><a class="p-name" href="?mod=detail&code=<?php echo $val['code']; ?>"><?php echo $val['name']; ?></a></h2>
@@ -245,7 +245,7 @@ if (isset($_GET['author'])) {
                                 <div class="product__inside">
                                     <!-- product image -->
                                     <div class="product__inside__image">
-                                        <a href="?mod=detail&code=<?php echo $p['code']; ?>"> <img src="public/images/product/<?php echo $p['image']; ?>" alt=""> </a>
+                                        <a href="?mod=detail&code=<?php echo $p['code']; ?>"> <img src="../upload/<?php echo $p['image']; ?>" alt=""> </a>
                                         <!-- quick-view -->
                                         <a slug-code="<?php echo $p['code']; ?>" href="javascript:void(0)" class="quick-view-detail quick-view"><b><span class="icon icon-visibility"></span> Quick view</b> </a>
                                         <!-- /quick-view -->
@@ -342,7 +342,7 @@ for ($i = 1; $i <= ceil($total / 6); $i++) {
                                 <div class="row product-info-outer">
                                     <div class="col-xs-12 col-sm-5 col-md-6 col-lg-6">
                                         <div class="product-main-image">
-                                            <div class="product-main-image__item pro_image"><img src='public/images/product/product-big-1.jpg' alt="" /></div>
+                                            <div class="product-main-image__item pro_image"><img src='../upload/product-big-1.jpg' alt="" /></div>
                                         </div>
                                     </div>
                                     <div class="product-info col-xs-12 col-sm-7 col-md-6 col-lg-6">
@@ -514,7 +514,7 @@ echo isset($prices) ? $prices[1] : 500;
                                 for (var key in product) {
                                     if (product.hasOwnProperty(key)) {
                                         if(key === 'image'){
-                                            $('.pro_image img').attr('src', 'public/images/product/' + product[key]);
+                                            $('.pro_image img').attr('src', '../upload/' + product[key]);
                                         } else if (key === 'code'){
                                             $('#add-to-cart-modal').attr('slug-code', product[key]);
                                         } else if (key === 'quantity'){

@@ -1,5 +1,5 @@
 <!-- include header -->
-<?php include('layout/header.php'); ?>
+<?php include 'layout/header.php';?>
     <!-- End HEADER section -->
     <!-- breadcrumbs -->
     <div class="breadcrumbs">
@@ -23,7 +23,7 @@
                         <div class="row">
                             <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 hidden-xs">
                                 <div class="product-main-image">
-                                    <div class="product-main-image__item"><img class="product-zoom" src='public/images/product/<?php echo $product['image']; ?>' data-zoom-image="public/images/product/<?php echo $product['image']; ?>" alt="" /></div>
+                                    <div class="product-main-image__item"><img class="product-zoom" src='../upload/<?php echo $product['image']; ?>' data-zoom-image="../upload/<?php echo $product['image']; ?>" alt="" /></div>
                                     <div class="product-main-image__zoom"></div>
                                 </div>
                             </div>
@@ -50,7 +50,7 @@
                                     <div class="product-info__description__text"><?php echo $product['description']; ?>.</div>
                                 </div>
                                 <div class="divider divider--xs product-info__divider"></div>
-                               
+
                                 <div class="divider divider--sm"></div>
                                 <div class="wrapper">
                                     <div class="pull-left"><span class="qty-label">Số lượng:</span></div>
@@ -64,7 +64,7 @@
                                         <!-- / -->
                                     </div>
                                     <div class="pull-left">
-                                        <button type="button" slug-code="<?php echo $product['code'];?>" id="add-to-cart-detail" class="btn btn--ys btn--xxl"><span class="icon icon-shopping_basket"></span> Add to cart</button>
+                                        <button type="button" slug-code="<?php echo $product['code']; ?>" id="add-to-cart-detail" class="btn btn--ys btn--xxl"><span class="icon icon-shopping_basket"></span> Add to cart</button>
                                     </div>
                                 </div>
                                 <ul class="product-link">
@@ -246,7 +246,7 @@
                 <!-- /title -->
                 <!-- carousel -->
                 <div class="carousel-products row" id="carouselRelated">
-                    <?php foreach ($productRecommend as  $pr) { ?>
+                    <?php foreach ($productRecommend as $pr) {?>
 
                     <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3 col-xl-one-six">
                         <!-- product -->
@@ -254,17 +254,17 @@
                             <div class="product__inside">
                                 <!-- product image -->
                                 <div class="product__inside__image">
-                                    <a href="#"> <img src="public/images/product/<?php echo $pr['image'];?>" alt=""> </a>
+                                    <a href="#"> <img src="../upload/<?php echo $pr['image']; ?>" alt=""> </a>
                                 </div>
                                 <!-- /product image -->
                                 <!-- product name -->
                                 <div class="product__inside__name">
-                                    <h2><a href="?mod=detail&code=<?php echo $pr['code'];?>" class="p-name"> <?php echo $pr['name'];?></a></h2>
+                                    <h2><a href="?mod=detail&code=<?php echo $pr['code']; ?>" class="p-name"> <?php echo $pr['name']; ?></a></h2>
                                 </div>
                                 <!-- /product name -->
                                 <!-- product description -->
                                 <!-- visible only in row-view mode -->
-                                <div class="product__inside__description row-mode-visible"> <?php echo $pr['description'];?>. </div>
+                                <div class="product__inside__description row-mode-visible"> <?php echo $pr['description']; ?>. </div>
                                 <!-- /product description -->
                                 <!-- product price -->
                                 <div class="product__inside__price price-box"><?php echo number_format($pr['price'], 0) . "&nbsp;₫"; ?></div>
@@ -273,7 +273,7 @@
                                 <div class="product__inside__hover">
                                     <!-- product info -->
                                     <div class="product__inside__info">
-                                        <div class="product__inside__info__btns"> <a slug-code="<?php echo $pr['code'];?>" href="javascript:void(0)" class="btn btn--ys btn--xl add-to-cart"><span class="icon icon-shopping_basket"></span> Add to cart</a>
+                                        <div class="product__inside__info__btns"> <a slug-code="<?php echo $pr['code']; ?>" href="javascript:void(0)" class="btn btn--ys btn--xl add-to-cart"><span class="icon icon-shopping_basket"></span> Add to cart</a>
                                             <a href="#" class="btn btn--ys btn--xl visible-xs"><span class="icon icon-favorite_border"></span></a>
                                             <a href="#" class="btn btn--ys btn--xl visible-xs"><span class="icon icon-sort"></span></a>
                                         </div>
@@ -291,7 +291,7 @@
                         </div>
                         <!-- /product -->
                     </div>
-                    <?php } ?>
+                    <?php }?>
                 </div>
                 <!-- /carousel -->
             </div>
@@ -319,7 +319,7 @@
             </div>
         </div>
         <!-- /modalAddToCart -->
-    <?php include('layout/footer.php'); ?>
+    <?php include 'layout/footer.php';?>
 
         <!-- END FOOTER section -->
         <script src="public/external/nouislider/nouislider.min.js"></script>
@@ -330,7 +330,7 @@
         <script>
             $(document).ready(function () {
                 $(document).on('click', '#add-to-cart-detail', function() {
-                    addToCart($(this).attr('slug-code'), 
+                    addToCart($(this).attr('slug-code'),
                         parseInt($(this).parents('.wrapper').find('input[name="quantity"]').val()));
                 })
                 $(document).on('click', '.add-to-cart', function() {

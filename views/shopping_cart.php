@@ -1,5 +1,5 @@
 <!-- include header -->
-<?php include('layout/header.php'); ?>
+<?php include 'layout/header.php';?>
     <!-- End HEADER section -->
     <!-- breadcrumbs -->
     <div class="breadcrumbs">
@@ -37,7 +37,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        
+
                     </tbody>
                 </table>
             </div>
@@ -95,7 +95,7 @@
     </div>
     <!-- End CONTENT section -->
     <!-- FOOTER section -->
-    <?php include('layout/footer.php'); ?>
+    <?php include 'layout/footer.php';?>
         <!-- jQuery 1.10.1-->
         <script src="public/external/jquery/jquery-2.1.4.min.js"></script>
         <script src="public/external/slick/slick.min.js"></script>
@@ -130,7 +130,7 @@
                             +'<td><div class="shopping-cart-table__product-image">'
                                 +'<input type="hidden" value="'+item.product.code+'"/>'
                                 +'<a href="product.html">'
-                                        +'<img class="img-responsive" src="public/images/product/'+item.product.image+'" alt="">'
+                                        +'<img class="img-responsive" src="../upload/'+item.product.image+'" alt="">'
                                 +'</a></div></td>'
                             +'<td>'
                                 +'<h5 class="shopping-cart-table__product-name text-left text-uppercase">'
@@ -182,7 +182,7 @@
             }else{
                 $('.shopping-cart-table tbody').append('Giỏ hàng đang trống!');
             }
-            
+
         }
         $(document).on('click', '#update-cart', function(){
             var list = $('.shopping-cart-table tbody').children();
