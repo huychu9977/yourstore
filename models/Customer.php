@@ -8,7 +8,7 @@ class Customer {
 	}
 	function login($username, $password) {
 		$sql = "select c.id, c.username, c.name, c.address, c.phone, c.email from dbo.[customer] c where c.username = ? and c.password = ?";
-		$stmt = sqlsrv_query($this->cus, $sql, array($username, $password));
+		$stmt = sqlsrv_query($this->cus, $sql, array($username, md5($password)));
 		$result = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC);
 		return $result;
 	}
@@ -54,7 +54,7 @@ class Customer {
 		$sql = "select o.code, o.status, o.created_date, s.location, sum(od.price * od.quantity) as total_price from [DESKTOP-BMK7D2Q].[QuanLyBanSach].[dbo].[order] o
 				left join dbo.[site] s on o.site_id = s.id
 				inner join [DESKTOP-BMK7D2Q].[QuanLyBanSach].[dbo].[order_detail] od on o.code = od.order_code
-				where customer_id = " . $customerId . "
+				where o.sale_type = 2 and customer_id = " . $customerId . "
 				group  by o.code, o.status, o.created_date, s.location";
 		$stmt = sqlsrv_query($this->cus, $sql);
 		$data = array();

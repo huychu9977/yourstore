@@ -51,7 +51,7 @@ class Product {
 		$sql .= " inner join [DESKTOP-BMK7D2Q].[QuanLyBanSach].[dbo].[site_book] sb on sb.book_id = b.id where 1 = 1";
 		$sql .= $tmp_sql;
 		$sql .= " and sb.site_id = " . $site_id;
-		$sql .= " order by b." . $sort . " OFFSET " . ($page - 1) * 12 . " ROWS FETCH NEXT 12 ROWS ONLY";
+		$sql .= " order by b." . $sort . " desc OFFSET " . ($page - 1) * 12 . " ROWS FETCH NEXT 12 ROWS ONLY";
 		$stmt = sqlsrv_query($this->connect, $sql);
 		$data = array();
 		while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
